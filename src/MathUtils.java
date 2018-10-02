@@ -5,7 +5,8 @@ public class MathUtils {
      */
     public static double divideNumbers(int dividend, int divisor) {
         /* Do some casual division ... Super easy ... Shouldn't be any problems here */
-        double res = dividend / divisor;
+        double res = (double)dividend / (double)divisor;
+        // Cast both inputs to double instead of dividing ints THEN casting, to avoid rounding issues
         /* Return the DEFINITELY CORRECT result */
         return res;
     }
@@ -16,7 +17,9 @@ public class MathUtils {
      */
     public static double raiseToPower(int base, int exp) {
         /* Set initial result to be just the number */
-        int res = base;
+        // Initial result should be 1 such that if the exponent is 0, it will return 1,
+        // else it will be modified properly.
+        int res = 1;
 
         /* Determine if the exponent is negative */
         boolean isNegative = false;
